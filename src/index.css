@@ -1,13 +1,276 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adding transition to all elements */
+* {
+  transition: all 0.5s ease;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Pulsing animation keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+body {
+  color: black;
+  background-color: white;
+  /* font-family: 'KochRivoli'; */
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.fillwindow {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+section,
+footer {
+  padding: 25px 75px;
+}
+
+footer.article {
+  padding: 25px 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.black,
+button.white,
+button.brand {
+  background-color: black;
+  color: white;
+}
+
+/* Button colors */
+button.black {
+  background-color: black;
+  color: white;
+}
+
+button.white {
+  background-color: white;
+  color: black;
+}
+
+button.brand {
+  background-color: #5f391b;
+  color: #a98c55;
+}
+
+.bigheader_white {
+  color: white;
+}
+
+h1 span,
+h2 span {
+  color: #37cb61;
+}
+
+p {
+  text-align: center;
+  max-width: 650px;
+}
+
+p.article {
+  max-width: fit-content;
+  text-align: left;
+}
+
+p.left {
+  text-align: left;
+}
+
+p.white {
+  color: white;
+}
+
+p.green {
+  color: #37cb61;
+}
+
+p.xl {
+  font-size: 20px;
+  line-height: 34px;
+}
+
+p.l {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+p.special {
+  line-height: 35px;
+}
+
+p.s {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+img {
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.potraite1 {
+  width: 235px;
+  height: 400px;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.potraite1 span {
+  border-radius: 7px;
+}
+
+.potraite2 {
+  width: 355px;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.wide__card {
+  width: 30%;
+  aspect-ratio: 23/20;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border-radius: 20px;
+  box-shadow: 20px 20px 15px -20px #97979721;
+}
+
+.face__card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+/* Mobile version styles */
+@media only screen and (max-width: 600px) {
+  section,
+  footer {
+    padding: 10px 20px;
+  }
+
+  p.xl {
+    line-height: 24px;
+  }
+
+  p.l {
+    line-height: 18px;
+  }
+
+  p.special {
+    line-height: 26px;
+  }
+
+  p.s {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .wide__card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .face__card {
+    width: 100%;
+    padding-bottom: 25px;
+  }
+}
+
+/* Hover effect for image div */
+.image__div:hover span {
+  background-color: #000000c0;
+  top: 0;
+  transition: 0.5s;
+}
+
+/* Styles for screens with a width greater than 1024px */
+@media screen and (min-width: 1400px) {
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile view and screens */
+@media screen and (max-width: 640px) {
+  section,
+  footer {
+    padding: 25px 20px;
+  }
+
+  p.xl {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  p.s {
+    font-size: 13px;
+  }
+  .wide__card {
+    width: 100%;
+    aspect-ratio: 23/14;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Pulsing animation on button click */
+button:active {
+  animation: pulse 0.2.5s;
+}
+
+@keyframes growWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 320px;
+  }
+}
+
+.animate-grow {
+  animation: growWidth 0.5s ease-out forwards;
+}
+
+/* Styles for screens with a width greater than 1024px */
+@media screen and (min-width: 1024px) {
+  body,
+  section,
+  header,
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Add this to your styles */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
