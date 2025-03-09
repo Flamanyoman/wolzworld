@@ -15,7 +15,7 @@ const ResponsiveArticle = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [likeCount, setLikeCount] = useState(1);
-  const [commentCount, setCommentCount] = useState(0);
+  const commentCount = 0;
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -32,19 +32,19 @@ const ResponsiveArticle = () => {
       <div className='flex gap-4 pb-4'>
         <img
           src={bodyImg}
-          alt={`Featured image`}
+          alt={`Featured`}
           className='h-[180px] md:h-[220px] w-auto flex-none object-cover rounded-lg'
         />
 
         <img
           src={coffeeMeal}
-          alt={`Featured image`}
+          alt={`Featured`}
           className='h-[180px] md:h-[220px] w-auto flex-none object-cover rounded-lg'
         />
 
         <img
           src={fineDinning}
-          alt={`Featured image`}
+          alt={`Featured`}
           className='h-[180px] md:h-[220px] w-auto flex-none object-cover rounded-lg'
         />
       </div>
@@ -150,7 +150,7 @@ const ResponsiveArticle = () => {
         <div className='mt-5'>
           <img
             src={heroImage}
-            alt='Article Cover'
+            alt='Cover'
             className='w-full h-60 object-cover rounded-xl shadow-md'
           />
         </div>
